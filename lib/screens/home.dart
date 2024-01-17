@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'start.dart';
+import 'navbar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedTabIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,77 +30,48 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const StartScreen()),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: Image.asset(
+                                'assets/returnIcon.png',
+                                height: 20.0,
+                              ),
+                            ),
+                          ),
+                        ),
                         Image.asset(
                           'assets/logo.png',
                           height: 230,
                         ),
-                        const SizedBox(height: 1.0),
-                        const Text(
-                          'Un Proyecto de Lambders',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 29, 29, 29),
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w400,
-                          ),
+                        Image.asset(
+                          'assets/logo.png',
+                          height: 230,
                         ),
-                        const SizedBox(height: 40.0),
-                        ElevatedButton(
-                           onPressed: () {
-                            
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromARGB(255, 173, 15, 15),
-                            padding: const EdgeInsets.symmetric(vertical: 18.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            minimumSize: const Size(double.infinity, 0),
-                          ),
-                          child: const Text(
-                            'Home',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
+                        Image.asset(
+                          'assets/logo.png',
+                          height: 230,
                         ),
-                        const SizedBox(height: 15.0),
-                        ElevatedButton(
-                          onPressed: () {
-                           
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromARGB(255, 201, 201, 201),
-                            padding: const EdgeInsets.symmetric(vertical: 18.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            minimumSize: const Size(double.infinity, 0),
-                          ),
-                          child: const Text(
-                            'Registrarte',
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 20, 20, 20),
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
+                        Image.asset(
+                          'assets/logo.png',
+                          height: 230,
                         ),
-                         const SizedBox(height: 40.0),
-                          const Text(
-                            'Al continuar, aceptas nuestros',
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 58, 58, 58),
-                              fontSize: 14.0,
-                            ),
-                          ),
-                          const Text(
-                            'términos y condiciones',
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 58, 58, 58),
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w500
-                            ),
-                          ),
+                        Image.asset(
+                          'assets/logo.png',
+                          height: 230,
+                        ),
+                        Image.asset(
+                          'assets/logo.png',
+                          height: 230,
+                        ),
                       ],
                     ),
                   ),
@@ -101,6 +81,16 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: CustomNavBar(
+        selectedIndex: _selectedTabIndex,
+        onTabTapped: _updateSelectedTab,
+      ),
     );
+  }
+
+  void _updateSelectedTab(int index) {
+    setState(() {
+      _selectedTabIndex = index;
+    });
   }
 }

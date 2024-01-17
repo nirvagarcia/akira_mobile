@@ -1,10 +1,10 @@
 import 'package:akira_mobile/screens/login.dart';
 import 'package:flutter/material.dart';
-import 'singin.dart'; // Asegúrate de importar el archivo que contiene la pantalla LoginScreen
+import 'singin.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({Key? key}) : super(key: key);
-
+  const StartScreen({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,8 +62,7 @@ class StartScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 15.0),
                         ElevatedButton(
-                          onPressed: () {
-                            // Navegar a la pantalla 'LoginScreen' cuando se presiona el segundo botón
+                          onPressed: () {                    
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => const SingInScreen()),

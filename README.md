@@ -1,10 +1,10 @@
-# akira_mobile
+![Header](./assets/bannerAkira.png)
 
-A new Flutter project.
+## 🛠 Building Process
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
+```sh
+   This project is a starting point for a Flutter application.
+```
 
 A few resources to get you started if this is your first Flutter project:
 
@@ -14,3 +14,17 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+
+<br>
+
+## 💻 Tech Stack
+`Flutter`
+`Dart`
+`MongoDB`
+`FireBase`
+
+<br>
+
+> Now you can enjoy! 
