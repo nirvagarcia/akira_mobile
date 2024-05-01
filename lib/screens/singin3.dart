@@ -1,10 +1,9 @@
 import 'package:akira_mobile/screens/singin2.dart';
 import 'package:flutter/material.dart';
-import 'start.dart';
 import 'package:akira_mobile/screens/home.dart';
 
-class SingInScreen extends StatelessWidget {
-  const SingInScreen({super.key});
+class SingIn3Screen extends StatelessWidget {
+  const SingIn3Screen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class SingInScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const StartScreen()),
+                  MaterialPageRoute(builder: (context) => const SingIn2Screen()),
                 );
               },
               child: Padding(
@@ -67,7 +66,7 @@ class SingInScreen extends StatelessWidget {
                         children: [
                           TextField(
                             decoration: InputDecoration(
-                              hintText: 'Nombre Completo',
+                              hintText: 'Dirección',
                               hintStyle: const TextStyle(
                                 color: Color(0xFFA1A1A1),
                                 fontSize: 15,
@@ -98,7 +97,7 @@ class SingInScreen extends StatelessWidget {
                           const SizedBox(height: 12.0),
                           TextField(
                             decoration: InputDecoration(
-                              hintText: 'Correo',
+                              hintText: 'Distrito',
                               hintStyle: const TextStyle(
                                 color: Color(0xFFA1A1A1),
                                 fontSize: 15,
@@ -129,7 +128,7 @@ class SingInScreen extends StatelessWidget {
                           const SizedBox(height: 12.0),
                           TextField(
                             decoration: InputDecoration(
-                              hintText: 'Contraseña',
+                              hintText: 'Provincia',
                               hintStyle: const TextStyle(
                                 color: Color(0xFFA1A1A1),
                                 fontSize: 15,
@@ -156,38 +155,7 @@ class SingInScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 12.0),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Repita su Contraseña',
-                              hintStyle: const TextStyle(
-                                color: Color(0xFFA1A1A1),
-                                fontSize: 15,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w400,
-                                height: 0.07,
-                                letterSpacing: 0.50,
-                              ),
-                              focusedBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Color.fromARGB(0, 158, 158, 158)),
-                                borderRadius: BorderRadius.all(Radius.circular(10)),
-                              ),
-                              enabledBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Color.fromARGB(0, 158, 158, 158)),
-                                borderRadius: BorderRadius.all(Radius.circular(10)),
-                              ),
-                              filled: true,
-                              fillColor: customColor1,
-                              prefixIcon: Padding(
-                                padding: const EdgeInsets.all(13.0),
-                                child: Image.asset(
-                                  'assets/passwordicon.png',
-                                  height: 10.0,
-                                ),
-                              ),
-                            ),
-                          ),
+                          ),                      
                         ],
                       ),
                       const SizedBox(height: 40.0),
@@ -195,7 +163,7 @@ class SingInScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const SingIn2Screen()),
+                            MaterialPageRoute(builder: (context) => const HomeScreen()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
@@ -207,7 +175,7 @@ class SingInScreen extends StatelessWidget {
                           minimumSize: const Size(double.infinity, 0),
                         ),
                         child: const Text(
-                          'Continuar',
+                          'Registrarme',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w400,
@@ -223,7 +191,7 @@ class SingInScreen extends StatelessWidget {
             ),
           ],
         ),
-        ),        
+        ),
       ),
     );
   }

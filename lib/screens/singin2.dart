@@ -1,9 +1,16 @@
+import 'package:akira_mobile/screens/singin.dart';
+import 'package:akira_mobile/screens/singin3.dart';
 import 'package:flutter/material.dart';
 import 'package:akira_mobile/screens/home.dart';
-import 'package:akira_mobile/screens/start.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SingIn2Screen extends StatefulWidget {
+  const SingIn2Screen({super.key});
+  @override
+  State<SingIn2Screen> createState() => _SingIn2ScreenState();
+}
+
+class _SingIn2ScreenState extends State<SingIn2Screen> {
+  String? selectedPaymentMethod;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,7 @@ class LoginScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const StartScreen()),
+                    MaterialPageRoute(builder: (context) => const SingInScreen()),
                   );
                 },
                 child: Padding(
@@ -53,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 15.0),
                             const Text(
-                              'Iniciar Sesión',
+                              'Registro',
                               style: TextStyle(
                                 color: Color.fromARGB(255, 29, 29, 29),
                                 fontSize: 25.0,
@@ -66,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                               children: [
                                 TextField(
                                   decoration: InputDecoration(
-                                    hintText: 'Correo',
+                                    hintText: 'Teléfono',
                                     hintStyle: const TextStyle(
                                       color: Color(0xFFA1A1A1),
                                       fontSize: 15,
@@ -76,11 +83,13 @@ class LoginScreen extends StatelessWidget {
                                       letterSpacing: 0.50,
                                     ),
                                     focusedBorder: const OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color.fromARGB(0, 158, 158, 158)),
+                                      borderSide:
+                                          BorderSide(color: Color.fromARGB(0, 158, 158, 158)),
                                       borderRadius: BorderRadius.all(Radius.circular(10)),
                                     ),
                                     enabledBorder: const OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color.fromARGB(0, 158, 158, 158)),
+                                      borderSide:
+                                          BorderSide(color: Color.fromARGB(0, 158, 158, 158)),
                                       borderRadius: BorderRadius.all(Radius.circular(10)),
                                     ),
                                     filled: true,
@@ -95,23 +104,16 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(height: 12.0),
-                                TextField(
+
+                                InputDecorator(
                                   decoration: InputDecoration(
-                                    hintText: 'Contraseña',
-                                    hintStyle: const TextStyle(
-                                      color: Color(0xFFA1A1A1),
-                                      fontSize: 15,
-                                      fontFamily: 'Roboto',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0.07,
-                                      letterSpacing: 0.50,
-                                    ),
+                                    hintText: 'Método de Pago',
                                     focusedBorder: const OutlineInputBorder(
                                       borderSide: BorderSide(color: Color.fromARGB(0, 158, 158, 158)),
                                       borderRadius: BorderRadius.all(Radius.circular(10)),
                                     ),
                                     enabledBorder: const OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color.fromARGB(0, 158, 158, 158)),
+                                      borderSide: BorderSide(color: Color.fromARGB(0, 230, 13, 13)),
                                       borderRadius: BorderRadius.all(Radius.circular(10)),
                                     ),
                                     filled: true,
@@ -124,23 +126,47 @@ class LoginScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                ),
-                                const SizedBox(height: 10.0),
-                                const Text(
-                                  '¿Olvidaste tu contraseña?',
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 128, 128, 128),
-                                    fontSize: 14.0,
+                                  child: Stack(
+                                    children: [
+                                      DropdownButtonHideUnderline(
+                                        child: DropdownButton<String>(
+                                          value: selectedPaymentMethod,
+                                          hint: const Text('Método de Pago'),
+                                          isDense: true,
+                                          onChanged: (String? newValue) {
+                                            setState(() {
+                                              selectedPaymentMethod = newValue;
+                                            });
+                                          },
+                                          items: <String>['Crédito/Débito', 'Billetera Electrónica']
+                                              .map<DropdownMenuItem<String>>((String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                        ),
+                                      ),
+                               
+                                      Positioned(
+                                        top: 100.0, 
+                                        left: 13.0, 
+                                        child: Image.asset(
+                                          'assets/passwordicon.png',
+                                          height: 10.0,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 40.0),
+                            const SizedBox(height: 175.0),
                             ElevatedButton(
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                                  MaterialPageRoute(builder: (context) => const SingIn3Screen()),
                                 );
                               },
                               style: ElevatedButton.styleFrom(
@@ -152,7 +178,7 @@ class LoginScreen extends StatelessWidget {
                                 minimumSize: const Size(double.infinity, 0),
                               ),
                               child: const Text(
-                                'Acceder',
+                                'Continuar',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w400,
